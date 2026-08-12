@@ -4,52 +4,33 @@
     {
         static void Main(string[] args)
         {
-
-
             Console.ReadKey();
         }
     }
 
-    internal interface IEntity
-    {
-        int Id { get; }
-    }
-
-    internal interface IRepository<T> where T : IEntity
+    internal interface IRepository<T>
     {
         void Add(T entity);
         void Remove(T entity);
     }
 
-    internal class Product : IEntity
+    internal class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
     }
 
-    internal class User
+    internal class Repository<T> : IRepository<T>
     {
-        public string Name { get; set; }
-    }
-
-    internal class ProductRepository : IRepository<Product>
-    {
-        public void Add(Product entity)
+        public void Add(T entity)
         {
+            if (entity.GetType() == typeof(Product))
+            {
 
+            }
         }
-        public void Remove(Product entity)
-        {
 
-        }
-    }
-    internal class UserRepository : IRepository<User>
-    {
-        public void Add(User entity)
-        {
-
-        }
-        public void Remove(User entity)
+        public void Remove(T entity)
         {
 
         }
