@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Box<int> box = new Box<int>();
+            box.Content = 1;
+            Console.WriteLine(box.Log());
+
+            Box<string> boxStr = new Box<string>();
+            boxStr.Content = "Hello World";
+            Console.WriteLine(boxStr.Log());
+
+            Console.ReadKey();
         }
     }
 }
