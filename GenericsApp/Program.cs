@@ -6,14 +6,23 @@ namespace GenericsApp
     {
         static void Main(string[] args)
         {
-            Predicate<int> IsEven = (x) =>
+            var emailTask = new EmailTask()
             {
-                return x % 2 == 0;
+                Message = "Hello, this is a test email.",
+                Recipient = "example@example.com"
+            };
+            var reportTask = new ReportTask()
+            {
+                ReportName = "Annual Report"
             };
 
-            List<int> ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+            var emailProcessor = new TaskProcessor<EmailTask, string>(emailTask);
+            var reportProcessor = new TaskProcessor<ReportTask, string>(reportTask);
 
-            var evenInts = ints.FindAll(IsEven);
+            Console.WriteLine(emailProcessor.Execute());
+            Console.WriteLine(reportProcessor.Execute());
+
+            Console.ReadKey();
         }
     }
 }
