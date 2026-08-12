@@ -6,27 +6,28 @@ namespace GenericsApp
     {
         static void Main(string[] args)
         {
-            string myName = "Cyrus";
-
-            if (myName.GetType() == typeof(string))
+            Action action = () =>
             {
-                // Hey this is a string
-            }
+                Console.WriteLine("Hello World");
+            };
+
+            action();
+
+            Action<int> numPrint = x =>
+            {
+                Console.WriteLine(x);
+            };
+
+            numPrint(10);
+
+            Action<float, float, float> sum = (x, y, z) =>
+            {
+                Console.WriteLine(x + y + z);
+            };
+
+            sum(1, 2, 3);
         }
     }
 
-    internal class ConfigurationManager<T>
-    { 
-        public T LoadedConfiguration { get; private set; }
 
-        public ConfigurationManager(T config)
-        {
-            LoadedConfiguration = config;
-        }
-
-        public static void SaveConfig(T configToSave)
-        { 
-            // Logic
-        }
-    }
 }
