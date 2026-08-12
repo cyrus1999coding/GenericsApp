@@ -6,11 +6,23 @@ namespace GenericsApp
 {
     internal class Box<T>
     {
-        public T Content { get; set; }
+        private T _content;
 
-        public string Log()
+        public Box(T initialValue)
         {
-            return $"Box contains {Content}";
+            _content = initialValue;
+
+        }
+
+        public void UpdateContent(T newContent)
+        {
+            _content = newContent;
+            Console.WriteLine($"Updated content to {_content}");
+        }
+
+        public T GetContent()
+        { 
+            return _content;
         }
     }
 }

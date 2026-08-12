@@ -4,15 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Box<int> box = new Box<int>();
-            box.Content = 1;
-            Console.WriteLine(box.Log());
-
-            Box<string> boxStr = new Box<string>();
-            boxStr.Content = "Hello World";
-            Console.WriteLine(boxStr.Log());
-
-            Console.ReadKey();
+            Box<string> boxStr = new Box<string>("Hello World");
+            boxStr.UpdateContent("Teaching c# is fun");
+            Console.WriteLine(boxStr.GetContent());
         }
     }
 }
