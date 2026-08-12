@@ -6,12 +6,14 @@ namespace GenericsApp
     {
         static void Main(string[] args)
         {
-            Func<int, int, string> sum = (x, y) =>
+            Predicate<int> IsEven = (x) =>
             {
-                return "Your result is: " + (x + y).ToString();
+                return x % 2 == 0;
             };
+
+            List<int> ints = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            var evenInts = ints.FindAll(IsEven);
         }
-
-
     }
 }
