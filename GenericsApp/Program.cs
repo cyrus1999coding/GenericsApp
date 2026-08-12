@@ -3,17 +3,21 @@
     internal class Program
     {
         static void Main(string[] args)
-        {   
-            Repository<Product> repository = new Repository<Product>();
-            var product = new Product();
-            repository.Add(product);
+        {
+            var productOne = new Product();
+            var productTwo = new Product();
+
+            var result = Comparer.AreEqual(productOne, productTwo);
+            Console.WriteLine(result);
             
             Console.ReadKey();
         }
     }
 
-    public class Product : IEntity
+    public class Product() 
     {
-        public int Id { get; }
+        
     }
+
+
 }
