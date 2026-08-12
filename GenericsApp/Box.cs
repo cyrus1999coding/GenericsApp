@@ -4,25 +4,21 @@ using System.Text;
 
 namespace GenericsApp
 {
-    internal class Box<T>
+    internal class Box<TFirst, TSecond>
     {
-        private T _content;
+        public TFirst First { get; set; }
+        public TSecond Second { get; set; }
 
-        public Box(T initialValue)
+        public Box(TFirst first, TSecond second)
         {
-            _content = initialValue;
-
+            First = first;
+            Second = second;
         }
 
-        public void UpdateContent(T newContent)
+        public void Display()
         {
-            _content = newContent;
-            Console.WriteLine($"Updated content to {_content}");
-        }
-
-        public T GetContent()
-        { 
-            return _content;
+            Console.WriteLine($"First: {First}, Type: {First.GetType()}");
+            Console.WriteLine($"Second: {Second}, Type: {Second.GetType()}");
         }
     }
 }
