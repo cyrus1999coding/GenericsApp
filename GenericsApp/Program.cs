@@ -6,28 +6,12 @@ namespace GenericsApp
     {
         static void Main(string[] args)
         {
-            Action action = () =>
+            Func<int, int, string> sum = (x, y) =>
             {
-                Console.WriteLine("Hello World");
+                return "Your result is: " + (x + y).ToString();
             };
-
-            action();
-
-            Action<int> numPrint = x =>
-            {
-                Console.WriteLine(x);
-            };
-
-            numPrint(10);
-
-            Action<float, float, float> sum = (x, y, z) =>
-            {
-                Console.WriteLine(x + y + z);
-            };
-
-            sum(1, 2, 3);
         }
+
+
     }
-
-
 }
