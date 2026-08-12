@@ -1,38 +1,32 @@
-﻿namespace GenericsApp
+﻿using System.Reflection;
+
+namespace GenericsApp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.ReadKey();
-        }
-    }
+            string myName = "Cyrus";
 
-    internal interface IRepository<T>
-    {
-        void Add(T entity);
-        void Remove(T entity);
-    }
-
-    internal class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    internal class Repository<T> : IRepository<T>
-    {
-        public void Add(T entity)
-        {
-            if (entity.GetType() == typeof(Product))
+            if (myName.GetType() == typeof(string))
             {
-
+                // Hey this is a string
             }
         }
+    }
 
-        public void Remove(T entity)
+    internal class ConfigurationManager<T>
+    { 
+        public T LoadedConfiguration { get; private set; }
+
+        public ConfigurationManager(T config)
         {
+            LoadedConfiguration = config;
+        }
 
+        public static void SaveConfig(T configToSave)
+        { 
+            // Logic
         }
     }
 }
